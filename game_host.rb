@@ -3,6 +3,7 @@ class Game
     def initialize(p1, p2)
       @player1 = Player.new(p1)
       @player2 = Player.new(p2)
+      @round_num = 0
     end
 
     def start_game
@@ -12,9 +13,12 @@ class Game
       STDIN.getc
       round 
     end 
-
+    
     def round
+      @round_num += 1
       stat = Game_progress.new(@player1, @player2)
+      puts "Round #{@round_num} [ENTER}"
+      STDIN.getc
       @player1.question_round
       stat.check_lost
       @player2.question_round
