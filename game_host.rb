@@ -17,7 +17,7 @@ class Game
     def round
       @round_num += 1
       stat = Game_progress.new(@player1, @player2)
-      puts "Round #{@round_num} [ENTER}"
+      puts "Round #{@round_num} [ENTER]"
       STDIN.getc
       @player1.question_round
       stat.check_lost
