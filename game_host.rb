@@ -4,6 +4,7 @@ class Game
       @player1 = Player.new(p1)
       @player2 = Player.new(p2)
       @round_num = 0
+      @stat = Game_progress.new(@player1, @player2)
     end
 
     def start_game
@@ -16,14 +17,13 @@ class Game
     
     def round
       @round_num += 1
-      stat = Game_progress.new(@player1, @player2)
       puts "Round #{@round_num} [ENTER]"
       STDIN.getc
       @player1.question_round
-      stat.check_lost
+      @stat.check_lost
       @player2.question_round
-      stat.check_lost 
-      stat.current_score
+      @stat.check_lost 
+      @stat.current_score
       round #initiates next round if lives != 0
     end
     

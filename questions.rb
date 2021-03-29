@@ -10,7 +10,7 @@ class Questions
   end
   
   def answer?(input)
-    answer = @int_one + @int_two
-    answer == input
+    @answer = @int_one + @int_two
+    @answer == input
   end
 end

@@ -4,7 +4,7 @@ class Game_progress
     @player1 = p1
     @player2 = p2
   end
-
+  
   def current_score
     puts "#{@player1.name}: #{'❤️ ' * @player1.lives}\n#{@player2.name}: #{'❤️ ' * @player1.lives}\n"
     puts ">>>>>>>>>> Next Round [ENTER]"
