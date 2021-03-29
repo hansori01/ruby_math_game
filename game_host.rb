@@ -1,13 +1,26 @@
-#game
-# asks the question turn by turn        that takes in an input
-# updates the score by grabbing it from player class.
-
 class Game
-  attr_accessor :name, :lives
   
-    def initialize(name)
-      @name = name
-      @lives = 3
+    def initialize(p1, p2)
+      @player1 = Player.new(p1)
+      @player2 = Player.new(p2)
     end
-  
-  end
+
+    def start_game
+      puts "Starting a new game with #{@player1.name} and #{@player2.name}... [ENTER]"
+      STDIN.getc
+      puts "Ready to Start? [ENTER]"
+      STDIN.getc
+      round 
+    end 
+
+    def round
+      stat = Game_progress.new(@player1, @player2)
+      @player1.question_round
+      stat.check_lost
+      @player2.question_round
+      stat.check_lost 
+      stat.current_score
+      round #initiates next round if lives != 0
+    end
+    
+end

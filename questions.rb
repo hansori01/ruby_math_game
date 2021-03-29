@@ -1,3 +1,16 @@
+class Questions
 
-#questions
-# the game asks a addition question of 2 numbers from 1 - 20 (integers)
+  def initialize()
+    @int_one = rand(1...20)
+    @int_two = rand(1...20)
+  end
+  
+  def question(player)
+    puts "#{player}: #{@int_one} + #{@int_two} = ❓"
+  end
+  
+  def answer?(input)
+    answer = @int_one + @int_two
+    answer == input
+  end
+end
